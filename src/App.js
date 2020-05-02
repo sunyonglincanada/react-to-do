@@ -1,9 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import TaskList from './components/TaskList';
+import TaskListContextProvider from './context/TaskListContext';
 import './App.css';
 
 function App() {
-  return <div className="App">APP</div>;
+  return (
+    <TaskListContextProvider>
+      <div className="container">
+        <div className="app-wrapper">
+          <div className="main">
+            <TaskList />
+          </div>
+        </div>
+      </div>
+    </TaskListContextProvider>
+  );
 }
 
 export default App;

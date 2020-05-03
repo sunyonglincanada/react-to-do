@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { TaskListContext } from '../context/TaskListContext';
 
-const taskForm = (props) => {
+const TaskForm = (props) => {
+  const addTask = useContext(TaskListContext);
+
+  const [title, setTitle] = useState('');
+
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTask.addTaskHandler(title);
+  };
+
   return (
-    <form className="form">
+    <form onSubmit={handleSubmit} className="form">
       <input
+        onChange={handleChange}
+        value={title}
         type="text"
         className="task-input"
         placeholder="Add Task..."
@@ -19,4 +35,4 @@ const taskForm = (props) => {
   );
 };
 
-export default taskForm;
+export default TaskForm;

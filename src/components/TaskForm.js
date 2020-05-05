@@ -40,7 +40,7 @@ const TaskForm = (props) => {
       />
       <div className="buttons">
         <button type="submit" className="btn add-task-btn">
-          {taskHandlers.editTaskItem ? 'Edit Task' : 'Add Task'}
+          {taskHandlers.editTaskItem ? 'Update Task' : 'Add Task'}
         </button>
         <button
           className="btn clear-btn"
